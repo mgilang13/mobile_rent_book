@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {Container} from 'native-base';
 
 import Carousel from '../Components/Carousel/Carousel';

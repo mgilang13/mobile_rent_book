@@ -13,6 +13,8 @@ import Profile from './src/Screens/Profile';
 
 const Stack = createStackNavigator();
 
+import HomeNavbar from './src/Components/BottomNavbar/BottomNavbar';
+
 class Navigator extends Component {
   render() {
     return (
@@ -31,7 +33,7 @@ class Navigator extends Component {
             />
             <Stack.Screen
               name="Home"
-              component={Home}
+              component={HomeNavbar}
               options={{headerShown: false}}
             />
             <Stack.Screen

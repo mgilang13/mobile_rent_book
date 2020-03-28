@@ -30,11 +30,12 @@ class PopularListBook extends React.Component {
 
   renderBook = ({item, index}) => {
     return (
-      <View>
+      <View style={styles.bookContainer}>
         <View style={styles.imageContainer}>
           <Image style={styles.bookImage} source={{uri: item.image_url}} />
         </View>
         <View key={index} style={styles.titleContainer}>
+          <Text style={styles.bookAuthor}>{item.author}</Text>
           <Text style={styles.bookTitle}>{item.title}</Text>
         </View>
       </View>
@@ -48,11 +49,9 @@ class PopularListBook extends React.Component {
     return (
       <View style={styles.popularContainer}>
         <Text style={styles.popularTitle}>Popular Book</Text>
-        <SafeAreaView style={styles.safeArea}>
+        <SafeAreaView style={styles.popularContent}>
           <FlatList
             numColumns={columns}
-            pagingEnabled={true}
-            showsHorizontalScrollIndicator={false}
             data={library}
             renderItem={this.renderBook}
             keyExtractor={item => item.id}></FlatList>
@@ -81,13 +80,23 @@ const styles = StyleSheet.create({
     color: '#303031',
     fontWeight: 'bold',
   },
+  bookContainer: {
+    marginTop: 20,
+    padding: 5,
+  },
   bookImage: {
-    width: 160,
+    width: 140,
     height: 200,
     borderRadius: 10,
   },
   titleContainer: {
-    marginRight: 20,
+    marginTop: 5,
+    marginRight: 35,
+    marginLeft: 5,
+  },
+  bookAuthor: {
+    fontSize: 13,
+    color: '#98A0B3',
   },
   bookTitle: {
     fontWeight: 'bold',

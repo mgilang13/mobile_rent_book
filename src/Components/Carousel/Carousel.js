@@ -1,7 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {Text, View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  FlatList,
+} from 'react-native';
 import {getAllGenre} from '../../Redux/actions/genre';
 
 function Item({genreTitle, bgColor}) {
