@@ -5,15 +5,15 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Login from './src/Screens/Login';
 import Register from './src/Screens/Register';
 import Home from './src/Screens/Home';
+import History from './src/Screens/History';
+import Rent from './src/Screens/Rent';
+import HomeBottomNavbar from './src/Components/NavbarSystem/HomeBottomNavbar';
+import Profile from './src/Screens/Profile';
 
 import {Provider} from 'react-redux';
 import store from './src/Redux/store';
 
-import Profile from './src/Screens/Profile';
-
 const Stack = createStackNavigator();
-
-import HomeNavbar from './src/Components/BottomNavbar/BottomNavbar';
 
 class Navigator extends Component {
   render() {
@@ -33,9 +33,15 @@ class Navigator extends Component {
             />
             <Stack.Screen
               name="Home"
-              component={HomeNavbar}
+              component={HomeBottomNavbar}
               options={{headerShown: false}}
             />
+            <Stack.Screen
+              name="Rent"
+              component={Rent}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen name="History" component={History} />
             <Stack.Screen
               name="Profile"
               component={Profile}

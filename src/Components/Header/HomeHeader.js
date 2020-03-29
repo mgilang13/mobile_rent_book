@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import {Content} from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-class HomeNavbar extends React.Component {
+class HomeHeader extends React.Component {
   render() {
     return (
       <View style={styles.navbarContainer}>
@@ -18,7 +18,7 @@ class HomeNavbar extends React.Component {
   }
 }
 
-export default HomeNavbar;
+export default HomeHeader;
 
 const styles = StyleSheet.create({
   navbarContainer: {

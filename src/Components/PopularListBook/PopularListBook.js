@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import {getAllBook} from '../../Redux/actions/book';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 class PopularListBook extends React.Component {
   state = {
@@ -29,8 +30,21 @@ class PopularListBook extends React.Component {
   };
 
   renderBook = ({item, index}) => {
+    console.log('item', item);
     return (
-      <View style={styles.bookContainer}>
+      <TouchableOpacity
+        style={styles.bookContainer}
+        activeOpacity={0.6}
+        onPress={() =>
+          this.props.bookDetail(
+            item.id,
+            item.image_url,
+            item.title,
+            item.author,
+            item.description,
+            item.availability,
+          )
+        }>
         <View style={styles.imageContainer}>
           <Image style={styles.bookImage} source={{uri: item.image_url}} />
         </View>
@@ -38,7 +52,7 @@ class PopularListBook extends React.Component {
           <Text style={styles.bookAuthor}>{item.author}</Text>
           <Text style={styles.bookTitle}>{item.title}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   render() {
@@ -46,6 +60,14 @@ class PopularListBook extends React.Component {
 
     const {library} = this.state;
     console.log('library Popular: ', library);
+    const getHeader = () => {
+      return null;
+    };
+
+    const getFooter = () => {
+      return null;
+    };
+
     return (
       <View style={styles.popularContainer}>
         <Text style={styles.popularTitle}>Popular Book</Text>
@@ -54,7 +76,9 @@ class PopularListBook extends React.Component {
             numColumns={columns}
             data={library}
             renderItem={this.renderBook}
-            keyExtractor={item => item.id}></FlatList>
+            keyExtractor={item => item.id}
+            ListHeaderComponent={getHeader}
+            ListFooterComponent={getFooter}></FlatList>
         </SafeAreaView>
       </View>
     );
@@ -91,7 +115,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     marginTop: 5,
-    marginRight: 35,
+    marginRight: 30,
     marginLeft: 5,
   },
   bookAuthor: {

@@ -13,7 +13,6 @@ export const login = formdata => ({
     result => {
       console.log('result', result);
       if (result.data.status === 200) {
-        alert('Login Success');
         try {
           AsyncStorage.setItem('KEY_TOKEN', result.data.data.token);
           AsyncStorage.setItem('id', JSON.stringify(result.data.data.id));
