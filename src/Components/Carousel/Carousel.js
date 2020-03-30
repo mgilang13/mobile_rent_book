@@ -56,15 +56,14 @@ class Carousel extends React.Component {
 
     return (
       <View style={styles.carouselContainer}>
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
           <FlatList
-            horizontal={true}
-            pagingEnabled={true}
-            showsHorizontalScrollIndicator={true}
+            horizontal
+            showsHorizontalScrollIndicator={false}
             data={listGenre}
             renderItem={this.renderGenreItem}
             keyExtractor={item => item.id}></FlatList>
-        </SafeAreaView>
+        </View>
       </View>
     );
   }

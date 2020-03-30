@@ -3,12 +3,15 @@ import {View, StyleSheet, ScrollView} from 'react-native';
 import {Container} from 'native-base';
 
 import Carousel from '../Components/Carousel/Carousel';
-import HomeNavbar from '../Components/Header/HomeHeader';
+import HomeHeader from '../Components/Header/HomeHeader';
 import PopularListBook from '../Components/PopularListBook/PopularListBook';
 
 // import {Book} from '../Components/book';
 
 class Home extends Component {
+  state = {
+    query: '',
+  };
   detailBookHandler = (
     id,
     image_url,
@@ -26,13 +29,22 @@ class Home extends Component {
       availability: availability,
     });
   };
+  handleSearchBook = query => {
+    this.setState({
+      query: query,
+    });
+    console.log('dari home state', this.state.query);
+  };
   render() {
     return (
       <Container style={styles.container}>
         <ScrollView>
-          <HomeNavbar />
+          <HomeHeader searchBook={this.handleSearchBook} />
           <Carousel />
-          <PopularListBook bookDetail={this.detailBookHandler} />
+          <PopularListBook
+            bookDetail={this.detailBookHandler}
+            searchQuery={this.state.query}
+          />
         </ScrollView>
       </Container>
     );

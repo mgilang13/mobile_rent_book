@@ -20,3 +20,10 @@ export const rentBookAction = id => {
     payload: Axios.patch('http://10.0.3.2:3001/api/v1/book/rentBook/' + id),
   };
 };
+
+export const searchBookByTitle = title => {
+  return {
+    type: 'SEARCH_BOOK',
+    payload: Axios.patch('http://10.0.3.2:3001/api/v1/book/?search=' + title),
+  };
+};
